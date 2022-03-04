@@ -1,3 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <contacts>
+<contact>
+	<first_name>Jessica</first_name>
+	<last_name>Balcom</last_name>
+	<phone_number>8027748292</phone_number>
+	<notes>Soon to be Jessica Mark.</notes>
+</contact>
+<contact>
+	<first_name>Ryan</first_name>
+	<last_name>Mark</last_name>
+	<phone_number>6094626836</phone_number>
+	<notes>Getting married 8.6.22.</notes>
+</contact>
+<contact>
+	<first_name>This</first_name>
+	<last_name>is</last_name>
+	<phone_number>a</phone_number>
+	<notes>test!!!!!</notes>
+</contact>
 </contacts>

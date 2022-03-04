@@ -27,4 +27,17 @@ public class ContactController {
         Contact newContact = new Contact(firstName, lastName, phoneNumber, notes);
         return newContact;
     }
+
+    public void editContact(Contact contact){
+        firstNameField.setText(contact.getFirstName());
+        lastNameField.setText(contact.getLastName());
+        phoneNumberField.setText(contact.getPhoneNumber());
+        notesField.setText(contact.getNotes());
+    }
+    public void updateSelectedContact(Contact contact){
+        contact.setFirstName(firstNameField.getText());
+        contact.setLastName(lastNameField.getText());
+        contact.setPhoneNumber(phoneNumberField.getText());
+        contact.setNotes(notesField.getText());
+    }
 }

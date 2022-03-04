@@ -42,7 +42,6 @@ public class ContactData {
 
     public void deleteContact(Contact item){
         contacts.remove(item);
-        saveContacts();
     }
 
     public void loadContacts() {
