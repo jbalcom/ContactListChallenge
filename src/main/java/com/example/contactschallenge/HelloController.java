@@ -55,16 +55,34 @@ public class HelloController {
     }
     @FXML
     public void showEditContactDialog(){
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        dialog.setTitle("Edit Contact");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("contactDialog.fxml"));
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+        }catch (IOException e){
+            System.out.println("Couldn't load the dialog");
+            e.printStackTrace();
+            return;
+        }
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
 
+        ContactController contactController = fxmlLoader.getController();
+        contactController.editContact(contactsTable.getSelectionModel().getSelectedItem());
+
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK){
+            contactController.updateSelectedContact(contactsTable.getSelectionModel().getSelectedItem());
+            data.saveContacts();
+        }
     }
 
     @FXML
     public void handleDeleteContact(){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Delete Contact");
-        alert.setHeaderText("Delete contact: ");
-        alert.setContentText("Are you sure?  Press OK to confirm, or cancel to back out.");
-        Optional<ButtonType> result = alert.showAndWait();
+        data.deleteContact(contactsTable.selectionModelProperty().get().getSelectedItem());
     }
 
     @FXML
