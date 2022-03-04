@@ -6,6 +6,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -17,14 +18,33 @@ public class HelloController {
     private BorderPane mainBorderPane;
 
     @FXML
+    private ContactData data;
+
+    @FXML
     private TableView<Contact> contactsTable;
 
-    private ContactData data;
+    @FXML
+    private TableColumn<Contact,String> firstNameCol;
+
+    @FXML
+    private TableColumn<Contact,String> lastNameCol;
+
+    @FXML
+    private TableColumn<Contact,String> phoneNumberCol;
+
+    @FXML
+    private TableColumn<Contact,String> notesCol;
 
     public void initialize() {
         data = new ContactData();
-        data.loadContacts();
         contactsTable.setItems(data.getContacts());
+
+        firstNameCol.setCellValueFactory(new PropertyValueFactory<Contact, String>("firstName"));
+        lastNameCol.setCellValueFactory(new PropertyValueFactory<Contact, String>("lastName"));
+        phoneNumberCol.setCellValueFactory(new PropertyValueFactory<Contact, String>("phoneNumber"));
+        notesCol.setCellValueFactory(new PropertyValueFactory<Contact, String>("notes"));
+
+        contactsTable.getColumns().setAll(firstNameCol, lastNameCol, phoneNumberCol, notesCol);
     }
 
     @FXML
@@ -44,7 +64,6 @@ public class HelloController {
 
         dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
         dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-
         Optional<ButtonType> result = dialog.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK){
             ContactController contactController = fxmlLoader.getController();

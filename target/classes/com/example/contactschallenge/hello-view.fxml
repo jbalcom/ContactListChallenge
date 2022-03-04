@@ -1,44 +1,46 @@
-<?import javafx.scene.layout.BorderPane?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <BorderPane fx:id="mainBorderPane" fx:controller="com.example.contactschallenge.HelloController"
             xmlns:fx="http://javafx.com/fxml">
     <top>
         <MenuBar>
-            <menus>
-                <Menu text="Contacts">
-                    <items>
-                        <MenuItem text="Add..." onAction="#showAddContactDialog"/>
-                    </items>
-                </Menu>
-            </menus>
+            <Menu text="File">
+                <items>
+                    <MenuItem text="New..." onAction="#showAddContactDialog"/>
+                    <MenuItem text="Edit..." onAction="#showEditContactDialog"/>
+                    <MenuItem text="Delete..." onAction="#handleDeleteContact"/>
+                    <MenuItem text="Exit..." onAction="#showExitContactDialog"/>
+                </items>
+            </Menu>
         </MenuBar>
     </top>
 
     <center>
         <TableView fx:id="contactsTable">
             <columns>
-                <TableColumn text="First Name">
+                <TableColumn fx:id="firstNameCol" text="First Name">
                     <cellValueFactory>
                         <PropertyValueFactory property="firstName"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn text="Last Name">
+                <TableColumn fx:id="lastNameCol" text="Last Name">
                     <cellValueFactory>
                         <PropertyValueFactory property="lastName"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn text="Phone Number">
+                <TableColumn fx:id="phoneNumberCol" text="Phone Number">
                     <cellValueFactory>
                         <PropertyValueFactory property="phoneNumber"/>
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn text="notes">
+                <TableColumn fx:id="notesCol" text="Notes">
                     <cellValueFactory>
                         <PropertyValueFactory property="notes"/>
                     </cellValueFactory>

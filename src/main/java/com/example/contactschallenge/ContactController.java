@@ -24,7 +24,8 @@ public class ContactController {
         String phoneNumber = phoneNumberField.getText();
         String notes = notesField.getText();
 
-        return new Contact(firstName, lastName, phoneNumber, notes);
+        Contact newContact = new Contact(firstName, lastName, phoneNumber, notes);
+        return newContact;
     }
 
     public void editContact(Contact contact){
@@ -33,7 +34,6 @@ public class ContactController {
         phoneNumberField.setText(contact.getPhoneNumber());
         notesField.setText(contact.getNotes());
     }
-
     public void updateSelectedContact(Contact contact){
         contact.setFirstName(firstNameField.getText());
         contact.setLastName(lastNameField.getText());
