@@ -7,4 +7,6 @@ module com.example.contactschallenge {
 
     opens com.example.contactschallenge to javafx.fxml;
     exports com.example.contactschallenge;
+    opens com.example.contactschallenge.datamodel to javafx.fxml;
+    exports com.example.contactschallenge.datamodel;
 }
