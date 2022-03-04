@@ -2,8 +2,10 @@ package com.example.contactschallenge.datamodel;
 
 import javafx.beans.property.SimpleStringProperty;
 
+/**
+ * Created by timbuchalka on 2/11/16.
+ */
 public class Contact {
-
     private SimpleStringProperty firstName = new SimpleStringProperty("");
     private SimpleStringProperty lastName = new SimpleStringProperty("");
     private SimpleStringProperty phoneNumber = new SimpleStringProperty("");

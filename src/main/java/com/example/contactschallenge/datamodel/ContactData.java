@@ -19,17 +19,10 @@ public class ContactData {
     private static final String PHONE_NUMBER = "phone_number";
     private static final String NOTES = "notes";
 
-    private static ContactData instance = new ContactData();
-
     private ObservableList<Contact> contacts;
-
-    public static ContactData getInstance() {
-        return instance;
-    }
 
     public ContactData() {
         contacts = FXCollections.observableArrayList();
-        loadContacts();
     }
 
     public ObservableList<Contact> getContacts(){
@@ -42,7 +35,6 @@ public class ContactData {
 
     public void deleteContact(Contact item){
         contacts.remove(item);
-        saveContacts();
     }
 
     public void loadContacts() {
