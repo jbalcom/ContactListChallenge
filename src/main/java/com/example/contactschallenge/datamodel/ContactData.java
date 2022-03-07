@@ -40,8 +40,8 @@ public class ContactData {
         contacts.add(item);
     }
 
-    public void deleteContact(Contact item){
-        contacts.remove(item);
+    public void deleteSelectedContact(Contact contact) {
+        contacts.remove(contact);
     }
 
     public void loadContacts() {

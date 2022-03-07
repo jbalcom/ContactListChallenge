@@ -21,9 +21,8 @@
             </Menu>
         </MenuBar>
     </top>
-
     <center>
-        <TableView fx:id="contactsTable">
+        <TableView fx:id="contactsTable" onKeyPressed="#handleKeyPressed" onMouseClicked="#handleDoubleClick">
             <columns>
                 <TableColumn fx:id="firstNameCol" text="First Name">
                     <cellValueFactory>
